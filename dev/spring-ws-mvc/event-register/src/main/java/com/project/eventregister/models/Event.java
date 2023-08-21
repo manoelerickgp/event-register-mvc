@@ -1,7 +1,15 @@
 package com.project.eventregister.models;
 
-public class Event {
+import jakarta.persistence.*;
 
+import java.io.Serializable;
+
+@Entity
+@Table(name = "tb_event")
+public class Event implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String name;
     private String local;
     private String date;
