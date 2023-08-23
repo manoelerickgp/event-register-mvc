@@ -1,8 +1,24 @@
-<html>
-
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>EventApp</title>
+    </head>
     <body>
         <h1>
-            Testando Index.html. Olá mundo!
+            Lista de Eventos
         </h1>
+        <h3>
+            <a href="/eventRegister">Cadastrar Evento</a>
+        </h3>
+        <div th:each="event : ${event}">
+            <div class="row">
+                <p><span th:text="${event.name}" ></span></p>
+                <p><span th:text="${event.local}"></span></p>
+                <p><span th:text="${event.date}"> </span></p>
+                <p><span th:text="${event.time}"> </span></p>
+            </div>
+        </div>
+
     </body>
 </html>
