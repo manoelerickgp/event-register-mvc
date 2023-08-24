@@ -17,14 +17,13 @@ public class Event implements Serializable {
     private String date;
     private String time;
 
-    public Event() {
+
+    public Long getId() {
+        return id;
     }
 
-    public Event(String name, String local, String date, String time) {
-        this.name = name;
-        this.local = local;
-        this.date = date;
-        this.time = time;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
