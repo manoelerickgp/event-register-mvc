@@ -21,9 +21,9 @@
         <div th:each="event : ${event}" class="container">
             <div class="row">
                 <p>Name: <span th:text="${event.name}"></span></p>
-                <p>Local: <span th:text="${event.getLocal()}"></span></p>
-                <p>Date: <span th:text="${event.getDate()}"></span></p>
-                <p>Time: <span th:text="${event.getTime()}"></span></p>
+                <p>Local: <span th:text="${event.local}"></span></p>
+                <p>Date: <span th:text="${event.date}"></span></p>
+                <p>Time: <span th:text="${event.time}"></span></p>
             </div>
             <hr>
             <form method="post">
