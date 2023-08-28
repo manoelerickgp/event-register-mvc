@@ -3,6 +3,8 @@ package com.project.eventregister.models;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_event")
@@ -17,6 +19,8 @@ public class Event implements Serializable {
     private String date;
     private String time;
 
+    @OneToMany
+    private List<Guest> guests = new ArrayList<>();
 
     public Long getId() {
         return id;

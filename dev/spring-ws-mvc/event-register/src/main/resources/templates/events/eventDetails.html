@@ -20,11 +20,24 @@
 
         <div th:each="event : ${event}" class="container">
             <div class="row">
-                <p>Name: <span th:text="${event.getName()}"></span></p>
+                <p>Name: <span th:text="${event.name}"></span></p>
                 <p>Local: <span th:text="${event.getLocal()}"></span></p>
                 <p>Date: <span th:text="${event.getDate()}"></span></p>
                 <p>Time: <span th:text="${event.getTime()}"></span></p>
             </div>
+            <hr>
+            <form method="post">
+                <h3>Guest Register</h3>
+                <div class="row">
+                    <div class="input-field col s7">
+                        Guest Name: <input type="text" value="" name="guestName"/>
+                    </div>
+                    <div class="input-field col s5">
+                    RG: <input type="text" value="" name="rg"/>
+                    </div>
+                    <button class="waves-effect waves-light btn-large" type="submit" >Add</button>
+                </div>
+            </form>
         </div>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

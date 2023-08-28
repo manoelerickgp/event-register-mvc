@@ -38,7 +38,7 @@ public class EventController {
     public ModelAndView eventDetails(@PathVariable Long id){
         Event event = repository.findById(id);
         ModelAndView mv = new ModelAndView("events/eventDetails");
-        mv.addObject("event", event);
+        mv.addObject(event);
         return mv;
     }
 
