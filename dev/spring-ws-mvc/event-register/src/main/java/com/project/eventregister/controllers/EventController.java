@@ -44,7 +44,11 @@ public class EventController {
     public ModelAndView eventDetails(@PathVariable Long id){
         Event event = eventRepository.findById(id);
         ModelAndView mv = new ModelAndView("events/eventDetails");
-        mv.addObject(event);
+        mv.addObject("event", event);
+
+        Iterable<Guest> guets = guestRepository.findByEvent(event);
+        mv.addObject("convidados", guets);
+
         return mv;
     }
 
@@ -55,5 +59,7 @@ public class EventController {
         guestRepository.save(guest);
         return "redirect:/{id}";
     }
+
+
 
 }
