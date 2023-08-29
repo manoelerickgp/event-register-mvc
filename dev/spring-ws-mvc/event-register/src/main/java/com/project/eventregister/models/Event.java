@@ -1,6 +1,7 @@
 package com.project.eventregister.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,9 +15,16 @@ public class Event implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotEmpty
     private String name;
+
+    @NotEmpty
     private String local;
+
+    @NotEmpty
     private String date;
+
+    @NotEmpty
     private String time;
 
     @OneToMany

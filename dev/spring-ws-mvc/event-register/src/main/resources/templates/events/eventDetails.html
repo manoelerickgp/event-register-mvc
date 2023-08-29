@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br"
       xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"/>
     <head>
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -28,8 +28,10 @@
                 <p>Time: <span th:text="${event.time}"></span></p>
             </div>
             <hr>
+
             <form method="post">
                 <h3>Guest Register</h3>
+                <th:block th:include="mensagemValidacao"></th:block>
                 <div class="row">
                     <div class="input-field col s7">
                         Guest Name: <input type="text" value="" name="guestName"/>

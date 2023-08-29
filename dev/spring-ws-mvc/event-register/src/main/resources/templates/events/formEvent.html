@@ -19,6 +19,7 @@
             <a href="/events" class="waves-effect waves-light btn-large"><i class="material-icons left">dehaze</i>Lista de Eventos</a>
         </h3>
         <form class="container" method="post">
+            <th:block th:include="mensagemValidacao"></th:block>
             <div class="row">
                 <div class="input-field col s12">
                     Name: <input type="text" value="" name="name">
