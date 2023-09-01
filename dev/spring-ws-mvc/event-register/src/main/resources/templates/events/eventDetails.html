@@ -12,48 +12,55 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Event</title>
+        <link rel="stylesheet" href="style/style.css"/>
     </head>
     <body>
-        <h1>Event</h1>
-        <h3>
-            <a href="/events" class="waves-effect waves-light btn-large"><i class="material-icons left">dehaze</i>Lista de Eventos</a>
-        </h3>
-
-        <div th:each="event : ${event}" class="container">
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Event</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/events" class="waves-effect waves-light btn-large"><i class="material-icons left">dehaze</i>Lista de Eventos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+        <div th:each="event : ${event}" class="container eventDetails">
+            <h5>Event Details</h5>
             <div class="row">
                 <p>Name: <span th:text="${event.name}"></span></p>
                 <p>Local: <span th:text="${event.local}"></span></p>
                 <p>Date: <span th:text="${event.date}"></span></p>
                 <p>Time: <span th:text="${event.time}"></span></p>
             </div>
-            <hr>
-
+        </div>
+        <div class="container formConvidado">
             <form method="post">
-                <h3>Guest Register</h3>
+                <h5>Guest Register</h5>
                 <th:block th:include="mensagemValidacao"></th:block>
                 <div class="row">
-                    <div class="input-field col s7">
-                        Guest Name: <input type="text" value="" name="guestName"/>
-                    </div>
-                    <div class="input-field col s5">
-                    RG: <input type="text" value="" name="rg"/>
-                    </div>
-                    <button class="waves-effect waves-light btn-large" type="submit" >Add</button>
+                    Guest Name: <input type="text" value="" name="guestName" placeholder="full name"/>
+                    RG: <input type="text" value="" name="rg" placeholder="AA-000.000.000-00"/>
+                    <button class="waves-effect waves-light btn-large" type="submit">Add</button>
                 </div>
             </form>
         </div>
-        <div class="container">
-            <h5>Lista de Convidados</h5>
-            <div class="row" th:each="convidado : ${convidados}">
-                <div class="input-field col s6">
-                    <p><span th:text="${convidado.guestName}"></span></p>
-                </div>
-                <div class="input-field col s3">
-                    <p><span th:text="${convidado.rg}"></span></p>
-                </div>
-            </div>
-        </div>
+        <h5 class="tituloConvidados">Lista de Convidados</h5>
+        <table class="container tabelaConvidados">
+            <thead>
+                <tr>
+                    <th>Nome Convidado</th>
+                    <th>RG</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="convidado : ${convidados}">
+                    <td><span th:text="${convidado.guestName}"></span></td>
+                    <td><span th:text="${convidado.rg}"></span></td>
+                </tr>
+            </tbody>
+        </table>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
