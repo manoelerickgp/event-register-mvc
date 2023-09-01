@@ -73,6 +73,20 @@ public class EventController {
         return "redirect:/{id}";
     }
 
+    @RequestMapping(value = "/deleteEvent")
+    public String deleteEvent(Long id) {
+        Event event = eventRepository.findById(id);
+        eventRepository.delete(event);
+        return "redirect:/events";
+    }
 
+    @RequestMapping(value = "/deleteGuest")
+    public String deleteGuest(String rg){
+        Guest guest = guestRepository.findByRg(rg);
+        guestRepository.delete(guest);
+
+        //Event event = guest.getEvent().getId();
+        return "redirect:/" + guest.getEvent().getId();
+    }
 
 }
